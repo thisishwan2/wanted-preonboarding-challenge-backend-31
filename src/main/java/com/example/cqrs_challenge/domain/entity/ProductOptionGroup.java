@@ -1,6 +1,7 @@
 package com.example.cqrs_challenge.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,4 +29,11 @@ public class ProductOptionGroup {
 
     @OneToMany(mappedBy = "productOptionGroup", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductOption> options = new ArrayList<>();
+
+    @Builder
+    public ProductOptionGroup(Product product, String name, Integer displayOrder) {
+        this.product = product;
+        this.name = name;
+        this.displayOrder = displayOrder;
+    }
 }

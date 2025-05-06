@@ -1,6 +1,7 @@
 package com.example.cqrs_challenge.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,4 +35,15 @@ public class ProductOption {
     private Integer stock = 0;
 
     private Integer displayOrder = 0;
+
+    @Builder
+    public ProductOption(ProductOptionGroup productOptionGroup, String name, BigDecimal additionalPrice,
+                         String sku, Integer stock, Integer displayOrder) {
+        this.productOptionGroup = productOptionGroup;
+        this.name = name;
+        this.additionalPrice = additionalPrice;
+        this.sku = sku;
+        this.stock = stock;
+        this.displayOrder = displayOrder;
+    }
 }

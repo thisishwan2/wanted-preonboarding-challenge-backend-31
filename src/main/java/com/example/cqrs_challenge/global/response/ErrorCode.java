@@ -15,7 +15,8 @@ public enum ErrorCode {
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED.value(), "인증되지 않은 요청"),
     FORBIDDEN(HttpStatus.FORBIDDEN.value(), "권한이 없는 요청"),
     CONFLICT(HttpStatus.CONFLICT.value(), "리소스 충돌 발생"),
-    INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR.value(), "서버 내부 오류");
+    INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR.value(), "서버 내부 오류"),
+    JSON_CONVERT_ERROR(HttpStatus.INTERNAL_SERVER_ERROR.value(), "JSON 변환 오류");
 
     private final int httpStatus;
     private final String description;

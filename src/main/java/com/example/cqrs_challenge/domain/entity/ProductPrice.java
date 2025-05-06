@@ -1,6 +1,7 @@
 package com.example.cqrs_challenge.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -35,5 +36,16 @@ public class ProductPrice {
 
     @Column(precision = 5, scale = 2)
     private BigDecimal taxRate;
+
+    @Builder
+    public ProductPrice(Product product, BigDecimal basePrice, BigDecimal salePrice, BigDecimal costPrice,
+                        String currency, BigDecimal taxRate) {
+        this.product = product;
+        this.basePrice = basePrice;
+        this.salePrice = salePrice;
+        this.costPrice = costPrice;
+        this.currency = currency;
+        this.taxRate = taxRate;
+    }
 
 }

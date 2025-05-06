@@ -1,6 +1,7 @@
 package com.example.cqrs_challenge.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,4 +26,10 @@ public class ProductCategory{
     @Column(nullable = false)
     private boolean isPrimary;
 
+    @Builder
+    public ProductCategory(Product product, Category category, boolean isPrimary) {
+        this.product = product;
+        this.category = category;
+        this.isPrimary = isPrimary;
+    }
 }

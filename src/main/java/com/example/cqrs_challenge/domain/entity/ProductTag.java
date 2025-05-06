@@ -1,6 +1,7 @@
 package com.example.cqrs_challenge.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,4 +21,10 @@ public class ProductTag {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_id", nullable = false)
     private Tag tag;
+
+    @Builder
+    public ProductTag(Product product, Tag tag) {
+        this.product = product;
+        this.tag = tag;
+    }
 }

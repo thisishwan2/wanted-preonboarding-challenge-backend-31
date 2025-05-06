@@ -1,8 +1,11 @@
 package com.example.cqrs_challenge.domain.entity;
 
+import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 
@@ -23,6 +26,7 @@ public class ProductDetail {
     @Column(precision = 10, scale = 2)
     private BigDecimal weight;
 
+    @Type(JsonType.class)
     @Column(columnDefinition = "jsonb")
     private String dimensions;
 
@@ -38,7 +42,21 @@ public class ProductDetail {
     @Column(columnDefinition = "text")
     private String careInstructions;
 
+    @Type(JsonType.class)
     @Column(columnDefinition = "jsonb")
     private String additionalInfo;
 
+    @Builder
+    public ProductDetail(Product product, BigDecimal weight, String dimensions, String materials,
+                         String countryOfOrigin, String warrantyInfo, String careInstructions,
+                         String additionalInfo) {
+        this.product = product;
+        this.weight = weight;
+        this.dimensions = dimensions;
+        this.materials = materials;
+        this.countryOfOrigin = countryOfOrigin;
+        this.warrantyInfo = warrantyInfo;
+        this.careInstructions = careInstructions;
+        this.additionalInfo = additionalInfo;
+    }
 }
