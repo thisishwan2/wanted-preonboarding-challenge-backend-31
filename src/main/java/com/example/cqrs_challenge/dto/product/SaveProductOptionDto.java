@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SaveProductOptionDTO {
+public class SaveProductOptionDto {
     private String name;
     private BigDecimal additionalPrice;
     private String sku;

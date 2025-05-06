@@ -17,7 +17,7 @@ import java.util.List;
 public class SaveProductOptionGroupDto {
     public String name;
     public Integer displayOrder;
-    public List<SaveProductOptionDTO> options = new ArrayList<>();
+    public List<SaveProductOptionDto> options = new ArrayList<>();
 
     public ProductOptionGroup toEntity(Product product) {
         return ProductOptionGroup.builder()
